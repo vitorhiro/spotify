@@ -1,0 +1,16 @@
+{
+  "login": {
+    "title": "Login",
+    "placeholder-email": "E-mail",
+    "placeholder-password": "Senha",
+    "button": "Entar",
+    "loading-button": "Carregando..."
+  },
+  "home": {
+    "playlists": "Playlists",
+    "artists": "Artistas",
+    "album": "Álbum",
+    "artist": "Artista",
+    "search-placeholder": "Quem você quer ouvir hoje?"
+  }
+}
