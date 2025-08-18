@@ -7,3 +7,18 @@ export interface Image {
   url: string;
   width: number | null;
 }
+
+export interface PaginationInfo {
+  href: string;
+  limit: number;
+  next: string;
+  offset: number;
+  previous: null;
+  total: number;
+}
+
+export interface ExternalIds {
+  isrc?: string;
+  ean?: string;
+  upc?: string;
+}

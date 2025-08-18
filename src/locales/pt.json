@@ -9,8 +9,21 @@
   "home": {
     "playlists": "Playlists",
     "artists": "Artistas",
-    "album": "Álbum",
     "artist": "Artista",
+    "album": "Álbum",
+    "albums": "Álbuns",
     "search-placeholder": "Quem você quer ouvir hoje?"
+  },
+  "details": {
+    "followers": "Seguidores",
+    "top-tracks": "Top Hits",
+    "albums": "Álbuns",
+    "album": "Álbum",
+    "single": "Solo",
+    "table": {
+      "title": "Título",
+      "album": "Album",
+      "no-results": "Sem resultados"
+    }
   }
 }

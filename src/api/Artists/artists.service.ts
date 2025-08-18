@@ -1,6 +1,7 @@
 import { api } from "@/api";
 import { artistsIds } from "@/constants";
-import { Artist, ArtistResponse, ArtistSearchResponse } from "@/types/artists";
+import { Artist, ArtistAlbumsResponse, ArtistResponse, ArtistSearchResponse } from "@/types/artist";
+import { TrackResponse } from "@/types/track";
 
 export const fetchArtists = async (): Promise<ArtistResponse> => {
   const params = { ids: artistsIds.join(",") };
@@ -24,6 +25,28 @@ export const getArtistsBySearch = async (search: string): Promise<ArtistSearchRe
   const { data } = await api.get("/search", {
     params,
   });
+
+  return data;
+};
+
+export const getArtistTopTrack = async (id: string): Promise<TrackResponse> => {
+  const { data } = await api.get(`/artists/${id}/top-tracks`);
+
+  return data;
+};
+
+export const getAlbumByArtist = async ({
+  id,
+  limit,
+  offset,
+}: {
+  id: string;
+  limit: number;
+  offset: number;
+}): Promise<ArtistAlbumsResponse> => {
+  const params = { limit, offset };
+
+  const { data } = await api.get(`/artists/${id}/albums`, { params });
 
   return data;
 };

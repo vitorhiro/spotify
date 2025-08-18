@@ -1,5 +1,6 @@
 import { ReactNode, createContext, useContext, useState } from "react";
 
+import { Artist } from "@/types/artist";
 import { useDebounce } from "use-debounce";
 
 import { HomeContextValues } from "./types";
@@ -10,11 +11,14 @@ export const useHome = () => useContext(HomeContext);
 
 export const HomeProvider = ({ children }: { children: ReactNode }) => {
   const [search, setSearch] = useState("");
+  const [currentArtist, setCurrentArtist] = useState({} as Artist);
 
   const [searchTerm] = useDebounce(search, 500);
 
   return (
-    <HomeContext.Provider value={{ search, searchTerm, setSearch }}>
+    <HomeContext.Provider
+      value={{ search, searchTerm, currentArtist, setSearch, setCurrentArtist }}
+    >
       {children}
     </HomeContext.Provider>
   );
