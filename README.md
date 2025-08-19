@@ -1,29 +1,31 @@
 # Spotify Clone / Music App
 
-Este repositório contém uma aplicação frontend de música que consome a API do Spotify, permitindo buscar artistas, álbuns e músicas, além de exibir detalhes do artista e álbum.  
+Este repositório contém uma aplicação frontend de música que consome a API do Spotify, permitindo buscar artistas, álbuns e músicas, além de exibir detalhes do artista e álbum.
+
+> ⚠️ O projeto possui uma tela de login, mas **não é necessário autenticação real**. A tela serve apenas para obter o token de acesso da API do Spotify e permitir que a aplicação faça requisições à API.
 
 ---
 
 ## Tecnologias Utilizadas
 
-- **React** 
-- **React Router** 
-- **React Query / Tanstack Query** 
-- **Zustand** 
-- **Tailwind CSS** 
-- **Shadcn UI** 
-- **i18next / react-i18next** 
-- **Date-fns** 
-- **Axios** 
-- **React Icons** 
-- **Motion** 
-- **Sonner** 
+- **React**
+- **React Router**
+- **React Query / Tanstack Query**
+- **Zustand**
+- **Tailwind CSS**
+- **Shadcn UI**
+- **i18next / react-i18next**
+- **Date-fns**
+- **Axios**
+- **React Icons**
+- **Motion**
+- **Sonner**
 
 **DevDependencies principais:**
 
-- **TypeScript** 
-- **Vite** 
-- **ESLint / Prettier** 
+- **TypeScript**
+- **Vite**
+- **ESLint / Prettier**
 
 ---
 
@@ -36,13 +38,15 @@ Este repositório contém uma aplicação frontend de música que consome a API 
 
 ## Como Rodar
 
-1. Clone o repositório:  
+1. Clone o repositório:
+
 ```bash
 git clone https://github.com/vitorhiro/spotify.git
 cd spotify
 ```
 
 2. Instale as dependências:
+
 ```bash
 npm install
 # ou
@@ -50,6 +54,7 @@ yarn
 ```
 
 3. Rode a aplicação em modo de desenvolvimento:
+
 ```bash
 npm run dev
 # ou
@@ -57,10 +62,10 @@ yarn dev
 ```
 
 4. Acesse no navegador:
+
 ```bash
 http://localhost:3000
 ```
-
 
 ## Demo
 
