@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useContext } from "react";
+import { ReactNode, createContext, useContext, useState } from "react";
 
 import { useSearch } from "@/api/Search/search.hooks";
 import { useSearchStore } from "@/stores/search/useSearchStore";
@@ -12,6 +12,7 @@ const HomeContext = createContext<HomeContextValues>({} as HomeContextValues);
 export const useHome = () => useContext(HomeContext);
 
 export const HomeProvider = ({ children }: { children: ReactNode }) => {
+  const [filter, setFilter] = useState("artists");
   const { search } = useSearchStore();
 
   const [searchTerm] = useDebounce(search, 500);
@@ -24,6 +25,8 @@ export const HomeProvider = ({ children }: { children: ReactNode }) => {
         searchTerm,
         searchResults: data as SearchResults,
         isLoadingSearch: isLoading,
+        filter,
+        setFilter,
       }}
     >
       {children}

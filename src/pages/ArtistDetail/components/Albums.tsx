@@ -26,9 +26,9 @@ export default function Albums() {
   };
 
   return (
-    <div className="flex h-11/12 w-full flex-col gap-4 rounded-2xl bg-white/5 p-4 backdrop-blur-xl">
+    <div className="mb-40 flex w-full flex-col gap-4 rounded-2xl bg-white/5 p-4 backdrop-blur-xl xl:mb-0 xl:h-full">
       <h2 className="text-3xl font-bold">{t("details.albums")}</h2>
-      <div className="flex flex-col gap-4 overflow-y-scroll">
+      <div className="flex flex-col gap-4 xl:overflow-y-scroll">
         {isLoading ? (
           <div className="flex flex-col items-center gap-4">
             {[

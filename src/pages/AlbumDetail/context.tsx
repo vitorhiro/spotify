@@ -14,8 +14,6 @@ export const AlbumDetailProvider = ({ children }: { children: ReactNode }) => {
   const { currentAlbum } = useAlbumStore();
 
   const { data } = useAlbumById(currentAlbum.id);
-  console.log("🚀 ~ AlbumDetail ~ data:", data);
-  console.log("🚀 ~ AlbumDetail ~ currentAlbum:", currentAlbum);
 
   return (
     <AlbumDetailContext.Provider

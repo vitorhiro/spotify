@@ -7,14 +7,13 @@ import { useAlbumDetail } from "../context";
 
 export default function Info() {
   const { dataAlbumDetail } = useAlbumDetail();
-  console.log("🚀 ~ Info ~ dataAlbumDetail:", dataAlbumDetail);
   const { t } = useTranslation();
 
   const stars = Math.round(dataAlbumDetail.popularity / 20);
 
   return (
-    <div className="text-background-app flex w-max flex-col rounded-2xl bg-white p-4">
-      <div className="flex gap-8">
+    <div className="text-background-app flex w-full flex-col rounded-2xl bg-white p-4 xl:w-max">
+      <div className="flex flex-col gap-8 xl:flex-row">
         {dataAlbumDetail?.images?.length > 0 && (
           <motion.div className="flex">
             <motion.img

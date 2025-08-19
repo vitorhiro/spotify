@@ -1,6 +1,32 @@
 {
   "login": {
+    "title": "Login",
     "placeholder-email": "E-mail",
-    "button": "Login"
+    "placeholder-password": "Password",
+    "button": "Sign In",
+    "loading-button": "Loading..."
+  },
+  "home": {
+    "playlists": "Playlists",
+    "artists": "Artists",
+    "artist": "Artist",
+    "album": "Album",
+    "albums": "Albums",
+    "search-placeholder": "Who do you want to listen to today?"
+  },
+  "details": {
+    "followers": "Followers",
+    "top-tracks": "Top Hits",
+    "artists": "Artists",
+    "albums": "Albums",
+    "album": "Album",
+    "related-album": "Related Albums",
+    "single": "Single",
+    "explicit": "Explicit",
+    "table": {
+      "title": "Title",
+      "album": "Album",
+      "no-results": "No results"
+    }
   }
 }

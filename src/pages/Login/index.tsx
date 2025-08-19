@@ -23,8 +23,8 @@ export default function Login() {
   };
 
   return (
-    <div className="flex h-screen flex-col items-center justify-center gap-8">
-      <Card className="w-full max-w-lg p-12">
+    <div className="flex h-screen w-full flex-col items-center justify-center gap-8">
+      <Card className="h-screen w-screen max-w-lg p-12 sm:h-screen md:h-auto">
         <CardHeader>
           <div className="flex justify-center">
             <img src={logoGreen} className="w-52" />

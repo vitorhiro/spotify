@@ -61,7 +61,7 @@ export default function TopTracks() {
   ];
 
   return (
-    <div className="flex w-full flex-col gap-4 rounded-2xl bg-white/5 p-4 backdrop-blur-md">
+    <div className="flex w-full flex-col gap-4 overflow-y-scroll rounded-2xl bg-white/5 p-4 backdrop-blur-xl">
       <h2 className="text-3xl font-bold">{t("details.top-tracks")}</h2>
       {isLoading ? (
         <div className="flex flex-col items-center gap-8">
@@ -72,7 +72,9 @@ export default function TopTracks() {
           ]}
         </div>
       ) : (
-        <DataTable data={data?.tracks || []} columns={columns} />
+        <div className="max-h-full overflow-y-scroll">
+          <DataTable data={data?.tracks || []} columns={columns} />
+        </div>
       )}
     </div>
   );

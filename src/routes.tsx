@@ -8,7 +8,6 @@ import ArtistDetail from "./pages/ArtistDetail";
 
 const checkTokenLoader = () => {
   const token = localStorage.getItem("@Spotify:token");
-  console.log("🚀 ~ checkTokenLoader ~ token:", token);
 
   if (token) {
     return replace("/home");

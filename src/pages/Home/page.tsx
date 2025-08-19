@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
 import backgroundImage from "@/assets/images/background-image.jpg";
@@ -10,21 +9,22 @@ import { AnimatePresence, motion } from "framer-motion";
 import CarouselAlbums from "./components/CarouselAlbums";
 import CarouselArtists from "./components/CarouselArtists";
 import Header from "./components/Header";
+import { useHome } from "./context";
 
 export default function HomePage() {
-  const [filter, setFilter] = useState("artists");
+  const { filter, setFilter } = useHome();
   const { search } = useSearchStore();
   const { currentArtist } = useArtistStore();
   const { t } = useTranslation();
 
   return (
     <div
-      className="flex h-screen w-full flex-col overflow-hidden bg-cover bg-fixed font-sans text-white"
+      className="flex h-dvh w-full flex-col justify-center overflow-hidden bg-cover bg-fixed font-sans text-white md:justify-start"
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
-      <div className="flex w-full flex-col items-center justify-center gap-2 py-20">
+      <div className="flex w-full flex-col items-center justify-center gap-2 md:py-20">
         <Header />
-        <div className="flex max-h-[80vh] w-full flex-col px-40 py-6">
+        <div className="flex max-h-[80vh] w-full flex-col px-6 py-6 md:px-40">
           <div className="flex flex-col gap-4">
             <div className="flex w-full flex-col items-center gap-4 rounded-2xl bg-white/5 p-4 backdrop-blur-xl">
               <div className="flex w-full items-center justify-center gap-4">
