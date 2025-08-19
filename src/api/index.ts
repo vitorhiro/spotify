@@ -24,7 +24,7 @@ api.interceptors.response.use(
         window.location.assign("/");
       };
 
-      setTimeout(() => AutoLogout(), 4000);
+      setTimeout(() => AutoLogout(), 3000);
     }
 
     return await Promise.reject(error);

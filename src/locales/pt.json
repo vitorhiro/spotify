@@ -17,9 +17,11 @@
   "details": {
     "followers": "Seguidores",
     "top-tracks": "Top Hits",
+    "artists": "Artistas",
     "albums": "Álbuns",
     "album": "Álbum",
     "single": "Solo",
+    "explicit": "Explícita",
     "table": {
       "title": "Título",
       "album": "Album",

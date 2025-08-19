@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { useAlbumsByArtist } from "@/api/Artists/artists.hooks";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
-import { useHome } from "@/pages/Home/context";
+import { useAlbumStore } from "@/stores/album/useAlbumStore";
 import { format } from "date-fns";
 
 export default function Albums() {
@@ -13,20 +13,22 @@ export default function Albums() {
 
   const { t } = useTranslation();
 
-  const { currentArtist } = useHome();
+  const { currentAlbum } = useAlbumStore();
 
   const { data, isLoading, isFetching } = useAlbumsByArtist({
-    id: currentArtist.id,
+    id: currentAlbum?.artists?.[0]?.id,
     limit,
     offset,
   });
+
+  const filteredAlbums = data?.items.filter((album) => album.id !== currentAlbum?.id);
 
   const handlePagination = () => {
     setLimit(limit + 10);
   };
 
   return (
-    <div className="flex h-full w-full flex-col gap-4 rounded-2xl bg-white/5 p-4 backdrop-blur-md">
+    <div className="h-1full flex w-full flex-col gap-4 rounded-2xl bg-white/5 p-4 backdrop-blur-xl">
       <h2 className="text-3xl font-bold">{t("details.albums")}</h2>
       <div className="flex flex-col gap-4 overflow-y-scroll">
         {isLoading ? (
@@ -39,7 +41,7 @@ export default function Albums() {
           </div>
         ) : (
           <div className="flex flex-col gap-4">
-            {data?.items.map((album) => (
+            {filteredAlbums?.map((album) => (
               <div className="flex gap-2">
                 <img src={album?.images[0]?.url} className="w-24 rounded-2xl object-cover" />
                 <div className="flex flex-col justify-between gap-2 py-4">

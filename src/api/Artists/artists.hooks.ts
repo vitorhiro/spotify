@@ -1,17 +1,11 @@
 import { type UseQueryResult, useQuery } from "@tanstack/react-query";
 
-import type {
-  Artist,
-  ArtistAlbumsResponse,
-  ArtistResponse,
-  ArtistSearchResponse,
-} from "../../types/artist";
+import type { Artist, ArtistAlbumsResponse, ArtistResponse } from "../../types/artist";
 import {
   fetchArtists,
   getAlbumByArtist,
   getArtistTopTrack,
   getArtistsById,
-  getArtistsBySearch,
 } from "./artists.service";
 
 export function useFetchArtists(): UseQueryResult<ArtistResponse> {
@@ -26,15 +20,6 @@ export function useArtistById(id: string): UseQueryResult<Artist> {
     queryKey: ["get-artist-by-id", id],
     queryFn: () => getArtistsById(id),
     enabled: !!id,
-  });
-}
-
-export function useArtistBySearch(search: string): UseQueryResult<ArtistSearchResponse> {
-  return useQuery({
-    queryKey: ["search-artist", search],
-    queryFn: () => getArtistsBySearch(search),
-    enabled: !!search,
-    staleTime: 1000 * 60,
   });
 }
 

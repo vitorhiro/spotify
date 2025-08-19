@@ -1,35 +1,46 @@
 import { useTranslation } from "react-i18next";
 import { MdOutlineClose, MdOutlineHome } from "react-icons/md";
+import { useNavigate } from "react-router";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useArtistStore } from "@/stores/artist/useArtistStore";
+import { useSearchStore } from "@/stores/search/useSearchStore";
 import { Artist } from "@/types/artist";
-
-import { useHome } from "../context";
+import { motion } from "framer-motion";
 
 export default function Header() {
-  const { search, setCurrentArtist, setSearch } = useHome();
+  const { search, setSearch } = useSearchStore();
+  const { setCurrentArtist } = useArtistStore();
+
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
   const handleSearch = (value: string) => {
     setSearch(value);
+  };
+
+  const handleHome = () => {
+    setSearch("");
     setCurrentArtist({} as Artist);
+    navigate(-1);
   };
 
   return (
     <div className="flex w-full items-center justify-center gap-4">
-      <button
-        onClick={() => setCurrentArtist({} as Artist)}
+      <motion.button
+        layoutId="button-home"
+        onClick={() => handleHome()}
         className="p-04 flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-white/20 backdrop-blur-md hover:bg-white/10"
       >
         <MdOutlineHome size={28} />
-      </button>
+      </motion.button>
 
       <Input
         value={search}
         onChange={(e) => handleSearch(e.target.value)}
         placeholder={t("home.search-placeholder")}
-        className="w-1/3 bg-white/20 backdrop-blur-md placeholder:text-white"
+        className="w-1/3 bg-white/20 backdrop-blur-xl placeholder:text-white"
       />
       {search && (
         <Button

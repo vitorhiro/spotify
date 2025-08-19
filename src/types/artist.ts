@@ -27,10 +27,6 @@ export interface ArtistSearched extends PaginationInfo {
   items: Artist[];
 }
 
-export interface ArtistSearchResponse extends PaginationInfo {
-  artists: ArtistSearched;
-}
-
 export interface ArtistAlbumsResponse extends PaginationInfo {
   items: Album[];
 }

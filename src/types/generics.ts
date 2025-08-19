@@ -22,3 +22,8 @@ export interface ExternalIds {
   ean?: string;
   upc?: string;
 }
+
+export interface Copyright {
+  text: string;
+  type: string;
+}

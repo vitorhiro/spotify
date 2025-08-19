@@ -1,11 +1,11 @@
 import { useTranslation } from "react-i18next";
 import { FaStar } from "react-icons/fa";
 
-import { useHome } from "@/pages/Home/context";
+import { useArtistStore } from "@/stores/artist/useArtistStore";
 import { motion } from "framer-motion";
 
 export default function Info() {
-  const { currentArtist } = useHome();
+  const { currentArtist } = useArtistStore();
   const { t } = useTranslation();
 
   const formattedFollowers = new Intl.NumberFormat("pt-BR").format(currentArtist?.followers?.total);

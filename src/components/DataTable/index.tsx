@@ -27,11 +27,11 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
     <div className="overflow-hidden rounded-md">
       <Table>
         <TableHeader>
-          {table.getHeaderGroups().map((headerGroup) => (
-            <TableRow key={headerGroup.id}>
-              {headerGroup.headers.map((header) => {
+          {table.getHeaderGroups().map((headerGroup, index) => (
+            <TableRow key={`${headerGroup.id}-${index}`}>
+              {headerGroup.headers.map((header, i) => {
                 return (
-                  <TableHead key={header.id}>
+                  <TableHead key={`${header.id}-${i}`}>
                     {header.isPlaceholder
                       ? null
                       : flexRender(header.column.columnDef.header, header.getContext())}
@@ -43,10 +43,10 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
         </TableHeader>
         <TableBody>
           {table.getRowModel().rows?.length ? (
-            table.getRowModel().rows.map((row) => (
-              <TableRow key={row.id} data-state={row.getIsSelected() && "selected"}>
-                {row.getVisibleCells().map((cell) => (
-                  <TableCell key={cell.id}>
+            table.getRowModel().rows.map((row, index) => (
+              <TableRow key={`${row.id}-${index}`} data-state={row.getIsSelected() && "selected"}>
+                {row.getVisibleCells().map((cell, i) => (
+                  <TableCell key={`${cell.id}-${i}`}>
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
                   </TableCell>
                 ))}

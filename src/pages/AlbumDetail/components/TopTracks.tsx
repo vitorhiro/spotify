@@ -1,18 +1,17 @@
 import { useTranslation } from "react-i18next";
 import { MdAccessTime } from "react-icons/md";
 
-import { useArtistTopTrack } from "@/api/Artists/artists.hooks";
 import { DataTable } from "@/components/DataTable";
-import { Skeleton } from "@/components/ui/skeleton";
-import { useHome } from "@/pages/Home/context";
+import { useArtistStore } from "@/stores/artist/useArtistStore";
 import { Track } from "@/types/track";
 import { ColumnDef } from "@tanstack/react-table";
 
-export default function TopTracks() {
-  const { currentArtist } = useHome();
-  const { t } = useTranslation();
+import { useAlbumDetail } from "../context";
 
-  const { data, isLoading } = useArtistTopTrack(currentArtist.id);
+export default function TopTracks() {
+  const { dataAlbumDetail } = useAlbumDetail();
+  const { currentArtist } = useArtistStore();
+  const { t } = useTranslation();
 
   const columns: ColumnDef<Track>[] = [
     {
@@ -39,10 +38,6 @@ export default function TopTracks() {
       },
     },
     {
-      header: t("details.table.album"),
-      accessorKey: "album.name",
-    },
-    {
       header: () => <MdAccessTime />,
       accessorKey: "duration_ms",
       cell: ({ row }) => {
@@ -61,19 +56,11 @@ export default function TopTracks() {
   ];
 
   return (
-    <div className="flex w-full flex-col gap-4 rounded-2xl bg-white/5 p-4 backdrop-blur-md">
+    <div className="flex max-h-full w-full flex-col gap-4 overflow-y-scroll rounded-2xl bg-white/5 p-4 backdrop-blur-xl">
       <h2 className="text-3xl font-bold">{t("details.top-tracks")}</h2>
-      {isLoading ? (
-        <div className="flex flex-col items-center gap-8">
-          {[
-            ...Array(10)
-              .keys()
-              .map(() => <Skeleton className="h-6 w-full rounded-xl" />),
-          ]}
-        </div>
-      ) : (
-        <DataTable data={data?.tracks || []} columns={columns} />
-      )}
+      <div className="max-h-full overflow-y-scroll">
+        <DataTable data={dataAlbumDetail?.tracks?.items || []} columns={columns} />
+      </div>
     </div>
   );
 }

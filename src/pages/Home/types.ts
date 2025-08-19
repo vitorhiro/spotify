@@ -1,11 +1,7 @@
-import { Dispatch, SetStateAction } from "react";
-
-import { Artist } from "@/types/artist";
+import { SearchResults } from "@/types/search";
 
 export interface HomeContextValues {
-  search: string;
   searchTerm: string;
-  setSearch: Dispatch<SetStateAction<string>>;
-  currentArtist: Artist;
-  setCurrentArtist: Dispatch<SetStateAction<Artist>>;
+  searchResults: SearchResults;
+  isLoadingSearch: boolean;
 }

@@ -1,6 +1,8 @@
-import { ReactNode, createContext, useContext, useState } from "react";
+import { ReactNode, createContext, useContext } from "react";
 
-import { Artist } from "@/types/artist";
+import { useSearch } from "@/api/Search/search.hooks";
+import { useSearchStore } from "@/stores/search/useSearchStore";
+import { SearchResults } from "@/types/search";
 import { useDebounce } from "use-debounce";
 
 import { HomeContextValues } from "./types";
@@ -10,14 +12,19 @@ const HomeContext = createContext<HomeContextValues>({} as HomeContextValues);
 export const useHome = () => useContext(HomeContext);
 
 export const HomeProvider = ({ children }: { children: ReactNode }) => {
-  const [search, setSearch] = useState("");
-  const [currentArtist, setCurrentArtist] = useState({} as Artist);
+  const { search } = useSearchStore();
 
   const [searchTerm] = useDebounce(search, 500);
 
+  const { data, isLoading } = useSearch(searchTerm);
+
   return (
     <HomeContext.Provider
-      value={{ search, searchTerm, currentArtist, setSearch, setCurrentArtist }}
+      value={{
+        searchTerm,
+        searchResults: data as SearchResults,
+        isLoadingSearch: isLoading,
+      }}
     >
       {children}
     </HomeContext.Provider>

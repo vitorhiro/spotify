@@ -1,5 +1,6 @@
 import { Artist } from "./artist";
-import { ExternalUrls, Image } from "./generics";
+import { Copyright, ExternalIds, ExternalUrls, Image, PaginationInfo } from "./generics";
+import { Track } from "./track";
 
 export interface AlbumRestriction {
   reason: string;
@@ -24,4 +25,19 @@ export interface Album {
   uri: string;
   artists: Omit<Artist, "followers" | "genres" | "images" | "popularity">[];
   album_group?: SpotifyAlbumGroup;
+}
+
+export interface AlbumDetails extends Album {
+  tracks: {
+    items: Track[];
+  };
+  copyrights: Copyright[];
+  external_ids: ExternalIds;
+  genres: string[];
+  label: string;
+  popularity: number;
+}
+
+export interface AlbumSearched extends PaginationInfo {
+  items: Album[];
 }
