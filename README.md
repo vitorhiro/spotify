@@ -1,69 +1,69 @@
-# React + TypeScript + Vite
+# Spotify Clone / Music App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este repositório contém uma aplicação frontend de música que consome a API do Spotify, permitindo buscar artistas, álbuns e músicas, além de exibir detalhes do artista e álbum.  
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tecnologias Utilizadas
 
-## Expanding the ESLint configuration
+- **React** 
+- **React Router** 
+- **React Query / Tanstack Query** 
+- **Zustand** 
+- **Tailwind CSS** 
+- **Shadcn UI** 
+- **i18next / react-i18next** 
+- **Date-fns** 
+- **Axios** 
+- **React Icons** 
+- **Motion** 
+- **Sonner** 
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+**DevDependencies principais:**
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **TypeScript** 
+- **Vite** 
+- **ESLint / Prettier** 
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Requisitos
+
+- Node.js **23.3.0**
+- NPM ou Yarn
+
+---
+
+## Como Rodar
+
+1. Clone o repositório:  
+```bash
+git clone https://github.com/vitorhiro/spotify.git
+cd spotify
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+2. Instale as dependências:
+```bash
+npm install
+# ou
+yarn
 ```
+
+3. Rode a aplicação em modo de desenvolvimento:
+```bash
+npm run dev
+# ou
+yarn dev
+```
+
+4. Acesse no navegador:
+```bash
+http://localhost:3000
+```
+
+
+## Demo
+
+Insert gif or link to demo
+
+https://meuspotify.netlify.app/
